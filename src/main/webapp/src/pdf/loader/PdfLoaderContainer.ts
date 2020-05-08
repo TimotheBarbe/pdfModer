@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
 import PdfLoader from "./PdfLoader";
 import {IStoreState} from "../../state/models";
-import {loadPdfAction} from "../../redux/actions";
+import {loadPdfAction} from "../redux/actions";
 
 const mapStateToProps = (state: IStoreState) => ({
 });

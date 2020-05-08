@@ -2,8 +2,8 @@ import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
 import {IStoreState} from "../../state/models";
 import PdfPreview from "./PdfPreview";
-import {testSelector} from "../../redux/selectors";
-import {loadPdfAction} from "../../redux/actions";
+import {testSelector} from "../redux/selectors";
+import {loadPdfAction} from "../redux/actions";
 
 const mapStateToProps = (state: IStoreState) => ({
     pdf: testSelector(state),

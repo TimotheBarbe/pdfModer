@@ -1,9 +1,9 @@
 import {applyMiddleware, createStore, combineReducers} from "redux";
-import {setTestReducer} from "../redux/reducers";
+import {setPdfReducer} from "../pdf/redux/reducers";
 import {composeWithDevTools} from "redux-devtools-extension";
 
 const rootReducer = combineReducers({
-    pdf: setTestReducer
+    pdf: setPdfReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(
