@@ -1,11 +1,10 @@
-import { createAction } from "redux-actions";
+import {createAction} from "redux-actions";
+import {IPdfInfo} from "../../state/models";
 
 const component = "pdf/";
 
 export const ActionTypes = {
-  load: component + "load",
-  // insertPage: component + "insertPage",
+    load: component + "load",
 };
 
-export const loadPdfAction = createAction<Uint8Array>(ActionTypes.load);
-// export const insertPageAction = createAction<number>(ActionTypes.insertPage);
+export const loadPdfAction = createAction<IPdfInfo>(ActionTypes.load);

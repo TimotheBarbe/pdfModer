@@ -1,8 +1,10 @@
 import {PDFDocument} from "pdf-lib";
+import {IPdfInfo} from "../state/models";
 
 
-export async function insertPage(state: Uint8Array, index: number) {
-    const doc = await PDFDocument.load(state);
+export async function insertPage(state: IPdfInfo, index: number): Promise<IPdfInfo> {
+    const doc = await PDFDocument.load(state.data);
     doc.insertPage(index);
-    return doc.save();
+    let data = await doc.save();
+    return {data, pageCount: state.pageCount + 1};
 }

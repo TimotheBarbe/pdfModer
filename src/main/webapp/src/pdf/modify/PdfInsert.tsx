@@ -1,10 +1,11 @@
 import React, {PureComponent} from "react";
 import {Button} from "@material-ui/core";
 import {insertPage} from "../../utils/pdfUtils";
+import {IPdfInfo} from "../../state/models";
 
 interface IPdfInsertProps {
-    pdf: Uint8Array;
-    load: (data: Uint8Array) => void;
+    pdf: IPdfInfo;
+    load: (data: IPdfInfo) => void;
     index: number;
 }
 

@@ -1,3 +1,8 @@
+export interface IPdfInfo {
+    data: Uint8Array;
+    pageCount: number
+}
+
 export interface IStoreState {
-    pdf: Uint8Array;
+    pdf: IPdfInfo;
 }

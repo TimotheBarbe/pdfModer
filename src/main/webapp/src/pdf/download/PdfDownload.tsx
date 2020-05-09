@@ -2,15 +2,16 @@ import React, {PureComponent} from "react";
 import download from "downloadjs";
 import {Button} from "@material-ui/core";
 import {isEmpty} from "../../utils/Uint8ArrayUtils";
+import {IPdfInfo} from "../../state/models";
 
 interface IPdfPreviewProps {
-    pdf: Uint8Array;
+    pdf: IPdfInfo;
 }
 
 export default class PdfDownload extends PureComponent<IPdfPreviewProps> {
 
     private download = () => {
-        download(this.props.pdf, "download.pdf", "application/pdf");
+        download(this.props.pdf.data, "download.pdf", "application/pdf");
     }
 
     public render() {

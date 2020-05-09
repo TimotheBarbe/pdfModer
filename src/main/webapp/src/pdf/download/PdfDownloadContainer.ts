@@ -8,8 +8,6 @@ const mapStateToProps = (state: IStoreState) => ({
     pdf: pdfSelector(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-    // select: () => dispatch(testAction("action")),
-});
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PdfDownload);
