@@ -1,15 +1,16 @@
 import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
 import {IStoreState} from "../../state/models";
-import PdfPreview from "./PdfPreview";
+import PdfInsert from "./PdfInsert";
 import {pdfSelector} from "../redux/selectors";
+import {loadPdfAction} from "../redux/actions";
 
 const mapStateToProps = (state: IStoreState) => ({
     pdf: pdfSelector(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-    // select: () => dispatch(testAction("action")),
+    load: (data: Uint8Array) => dispatch(loadPdfAction(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PdfPreview);
+export default connect(mapStateToProps, mapDispatchToProps)(PdfInsert);

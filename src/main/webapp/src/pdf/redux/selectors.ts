@@ -1,3 +1,3 @@
 import { IStoreState } from "../../state/models";
 
-export const testSelector = (state: IStoreState) => state.pdf;
+export const pdfSelector = (state: IStoreState) => state.pdf;

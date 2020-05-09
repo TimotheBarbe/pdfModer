@@ -1,15 +1,14 @@
 import React, {PureComponent} from "react";
-import {Document, Page} from "react-pdf";
 import Dropzone from "react-dropzone";
 import {PDFDocument} from "pdf-lib";
 
 interface IPdfLoaderProps {
-    loadPdf: (data: Uint8Array) => void
+    load: (data: Uint8Array) => void
 }
 
 export default class PdfLoader extends PureComponent<IPdfLoaderProps> {
 
-    async loadPdf(existingPdfBytes: string | ArrayBuffer) {
+    async toUint(existingPdfBytes: string | ArrayBuffer) {
         const doc = await PDFDocument.load(existingPdfBytes)
         return await doc.save()
     }
@@ -21,7 +20,7 @@ export default class PdfLoader extends PureComponent<IPdfLoaderProps> {
         reader.onerror = () => console.log('file reading has failed')
         reader.onload = () => {
             const binaryStr = reader.result
-            if (binaryStr != null) this.loadPdf(binaryStr).then(r => this.props.loadPdf(r))
+            if (binaryStr != null) this.toUint(binaryStr).then(r => this.props.load(r))
         }
         reader.readAsArrayBuffer(file)
     };

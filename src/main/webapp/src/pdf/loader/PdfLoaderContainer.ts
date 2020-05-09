@@ -8,7 +8,7 @@ const mapStateToProps = (state: IStoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-    loadPdf: (data: Uint8Array) => dispatch(loadPdfAction(data)),
+    load: (data: Uint8Array) => dispatch(loadPdfAction(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PdfLoader);

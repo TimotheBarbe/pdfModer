@@ -1,3 +1,3 @@
 export interface IStoreState {
-    pdf: Uint8Array
+    pdf: Uint8Array;
 }
