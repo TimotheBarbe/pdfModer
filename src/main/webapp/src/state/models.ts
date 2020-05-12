@@ -1,6 +1,7 @@
 export interface IPdfInfo {
     data: Uint8Array;
-    pageCount: number
+    pageCount: number;
+    selectedPage: number;
 }
 
 export interface IStoreState {

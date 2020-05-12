@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {Document, Page} from "react-pdf";
+import {Document, Outline, Page} from "react-pdf";
 import {isEmpty} from "../../utils/Uint8ArrayUtils";
 import PdfLoaderContainer from "../loader/PdfLoaderContainer";
 import {IPdfInfo} from "../../state/models";
@@ -7,13 +7,19 @@ import {WithStyles} from "@material-ui/core";
 
 interface IPdfPreviewProps extends WithStyles {
     pdf: IPdfInfo;
+    selectedPage: number;
+    selectPage: (index: number) => void;
+
+    width: number;
+    height: number;
 }
 
 
 export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
+    private selectPage = (index: number) => (event: React.MouseEvent<any>) => this.props.selectPage(index)
 
     public render() {
-        const {pdf, classes} = this.props;
+        const {pdf, classes, width, height, selectedPage, selectPage} = this.props;
         const noPdf = isEmpty(pdf);
         const indexes = Array.from(Array(pdf.pageCount).keys())
 
@@ -21,7 +27,12 @@ export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
             <React.Fragment>
                 {noPdf && <PdfLoaderContainer/>}
                 {!noPdf && <Document file={{data: pdf.data}}>
-                    {indexes.map((index) => <Page width={611} className={classes.page} pageIndex={index}/>)}
+                    <div><Page width={width} height={height} className={classes.page} pageIndex={selectedPage}/></div>
+                    {indexes.map((index) => (
+                        index !== selectedPage &&
+                        <div onClick={this.selectPage(index)}><Page width={width} height={height} scale={0.5}
+                                                                    pageIndex={index}/></div>)
+                    )}
                 </Document>}
             </React.Fragment>
         )

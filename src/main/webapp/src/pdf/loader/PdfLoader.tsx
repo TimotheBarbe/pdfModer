@@ -13,7 +13,7 @@ export default class PdfLoader extends PureComponent<IPdfLoaderProps> {
         const doc = await PDFDocument.load(existingPdfBytes)
         let pageCount = doc.getPageCount();
         const data = await doc.save();
-        return {data, pageCount}
+        return {data, pageCount, selectedPage: 0}
     }
 
     private read = (files: File[]) => {

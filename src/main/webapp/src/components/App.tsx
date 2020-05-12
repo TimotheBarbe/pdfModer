@@ -24,12 +24,12 @@ class App extends React.PureComponent {
                 <CssBaseline/>
                 <Scaffolder>
                     <Grid container={true} spacing={3}>
-                        <Grid item={true} xs={8}>
-                            <PdfPreviewContainer/>
-                        </Grid>
                         <Grid item={true} xs={4}>
                             <PdfInsertContainer index={1}/>
                             <PdfDownloadContainer/>
+                        </Grid>
+                        <Grid item={true} xs={8}>
+                            <PdfPreviewContainer width={420} height={594}/>
                         </Grid>
                     </Grid>
                 </Scaffolder>
