@@ -29,7 +29,7 @@ class App extends React.PureComponent {
                             <PdfDownloadContainer/>
                         </Grid>
                         <Grid item={true} xs={8}>
-                            <PdfPreviewContainer width={420} height={594}/>
+                            <PdfPreviewContainer/>
                         </Grid>
                     </Grid>
                 </Scaffolder>
