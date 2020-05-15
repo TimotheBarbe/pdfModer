@@ -2,8 +2,9 @@ import React, {PureComponent} from "react";
 import Dropzone from "react-dropzone";
 import {PDFDocument} from "pdf-lib";
 import {IPdfInfo} from "../../state/models";
+import {WithStyles} from "@material-ui/core";
 
-interface IPdfLoaderProps {
+interface IPdfLoaderProps extends WithStyles {
     load: (data: IPdfInfo) => void
 }
 
@@ -29,13 +30,13 @@ export default class PdfLoader extends PureComponent<IPdfLoaderProps> {
     };
 
     public render() {
+        const {classes} = this.props;
         return (
             <React.Fragment>
-                loader
-                <Dropzone onDrop={acceptedFiles => this.read(acceptedFiles)}>
+                <Dropzone onDrop={acceptedFiles => this.read(acceptedFiles)} accept={".pdf"} multiple={false}>
                     {({getRootProps, getInputProps}) => (
                         <section>
-                            <div {...getRootProps()}>
+                            <div {...getRootProps({className: classes.dropzone})}>
                                 <input {...getInputProps()} />
                                 <p>Drag 'n' drop some files here, or click to select files</p>
                             </div>

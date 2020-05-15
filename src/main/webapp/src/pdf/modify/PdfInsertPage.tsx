@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import {Button} from "@material-ui/core";
 import {insertPage} from "../../utils/pdfUtils";
 import {IPdfInfo} from "../../state/models";
+import {isEmpty} from "../../utils/Uint8ArrayUtils";
 
 interface IPdfInsertProps {
     pdf: IPdfInfo;
@@ -19,8 +20,8 @@ export default class PdfInsert extends PureComponent<IPdfInsertProps> {
         return (
             <React.Fragment>
                 <Button variant="outlined" color="primary" onClick={this.insert}
-                        style={{margin: "0 10px 10px 0"}}>
-                    Insert
+                        style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}>
+                    Insert Page
                 </Button>
             </React.Fragment>
         )

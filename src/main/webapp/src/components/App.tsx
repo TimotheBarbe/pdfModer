@@ -6,7 +6,7 @@ import {createMuiTheme, MuiThemeProvider} from "@material-ui/core/styles";
 import PdfPreviewContainer from "../pdf/preview/PdfPreviewContainer";
 import PdfDownloadContainer from "../pdf/download/PdfDownloadContainer";
 import Scaffolder from "./Scaffolder";
-import PdfInsertContainer from "../pdf/modify/PdfInsertContainer";
+import PdfInsertContainer from "../pdf/modify/PdfInsertPageContainer";
 
 const theme = createMuiTheme({
     palette: {
