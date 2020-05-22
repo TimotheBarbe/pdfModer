@@ -1,13 +1,13 @@
 {
-  "main.css": "/pdfMod/static/css/main.20cb1f06.chunk.css",
-  "main.js": "/pdfMod/static/js/main.8d85b291.chunk.js",
-  "main.js.map": "/pdfMod/static/js/main.8d85b291.chunk.js.map",
-  "runtime~main.js": "/pdfMod/static/js/runtime~main.1eb5c854.js",
-  "runtime~main.js.map": "/pdfMod/static/js/runtime~main.1eb5c854.js.map",
-  "static/js/2.cec83dc1.chunk.js": "/pdfMod/static/js/2.cec83dc1.chunk.js",
-  "static/js/2.cec83dc1.chunk.js.map": "/pdfMod/static/js/2.cec83dc1.chunk.js.map",
-  "index.html": "/pdfMod/index.html",
-  "precache-manifest.d7061a45433c149dc016b6fc5c4feccd.js": "/pdfMod/precache-manifest.d7061a45433c149dc016b6fc5c4feccd.js",
-  "service-worker.js": "/pdfMod/service-worker.js",
-  "static/css/main.20cb1f06.chunk.css.map": "/pdfMod/static/css/main.20cb1f06.chunk.css.map"
+  "main.css": "/pdfModer/static/css/main.20cb1f06.chunk.css",
+  "main.js": "/pdfModer/static/js/main.202606d9.chunk.js",
+  "main.js.map": "/pdfModer/static/js/main.202606d9.chunk.js.map",
+  "runtime~main.js": "/pdfModer/static/js/runtime~main.b854f828.js",
+  "runtime~main.js.map": "/pdfModer/static/js/runtime~main.b854f828.js.map",
+  "static/js/2.cec83dc1.chunk.js": "/pdfModer/static/js/2.cec83dc1.chunk.js",
+  "static/js/2.cec83dc1.chunk.js.map": "/pdfModer/static/js/2.cec83dc1.chunk.js.map",
+  "index.html": "/pdfModer/index.html",
+  "precache-manifest.a96d61a0705cf2532b04aea6f26c5b31.js": "/pdfModer/precache-manifest.a96d61a0705cf2532b04aea6f26c5b31.js",
+  "service-worker.js": "/pdfModer/service-worker.js",
+  "static/css/main.20cb1f06.chunk.css.map": "/pdfModer/static/css/main.20cb1f06.chunk.css.map"
 }
