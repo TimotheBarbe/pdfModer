@@ -8,3 +8,10 @@ export async function insertPage(state: IPdfInfo, index: number): Promise<IPdfIn
     let data = await doc.save();
     return update(state, {data: {$set: data}, pageCount: {$set: state.pageCount + 1}, selectedPage: {$set: index}})
 }
+
+export async function removePage(state: IPdfInfo, index: number): Promise<IPdfInfo> {
+    const doc = await PDFDocument.load(state.data);
+    doc.removePage(index);
+    let data = await doc.save();
+    return update(state, {data: {$set: data}, pageCount: {$set: state.pageCount - 1}})
+}

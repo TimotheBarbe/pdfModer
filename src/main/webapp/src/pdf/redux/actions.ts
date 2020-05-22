@@ -5,7 +5,7 @@ const component = "pdf/";
 
 export const ActionTypes = {
     load: component + "load",
-    selectPage: component + "select"
+    selectPage: component + "select",
 };
 
 export const loadPdfAction = createAction<IPdfInfo>(ActionTypes.load);

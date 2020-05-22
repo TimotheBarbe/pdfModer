@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
-import {IStoreState} from "../../state/models";
+import {IPdfInfo, IStoreState} from "../../state/models";
 import {pdfSelectedPageSelector, pdfSelector} from "../redux/selectors";
 import {createStyles, Theme, withStyles} from "@material-ui/core";
 import PdfPage from "./PdfPage"
-import {selectPageAction} from "../redux/actions";
+import {loadPdfAction, selectPageAction} from "../redux/actions";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -17,11 +17,13 @@ const styles = (theme: Theme) =>
     })
 
 const mapStateToProps = (state: IStoreState) => ({
-    selectedPage: pdfSelectedPageSelector(state)
+    selectedPage: pdfSelectedPageSelector(state),
+    pdf: pdfSelector(state)
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
     selectPage: (index: number) => dispatch(selectPageAction(index)),
+    load: (data: IPdfInfo) => dispatch(loadPdfAction(data)),
 });
 
 export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(PdfPage));

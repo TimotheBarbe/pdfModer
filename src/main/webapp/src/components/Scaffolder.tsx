@@ -18,7 +18,7 @@ class Scaffolder extends React.PureComponent<WithStyles> {
                 <AppBar elevation={0} position={"static"}>
                     <Toolbar>
                         <Typography variant="h6">
-                            pdfMod
+                            pdfModer
                         </Typography>
                     </Toolbar>
                 </AppBar>

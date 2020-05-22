@@ -11,7 +11,7 @@ export const setPdfReducer = handleActions<any, any>(
         },
         [ActionTypes.selectPage]: (state: IPdfInfo, action: Action<number>) => {
             return update(state, {selectedPage: {$set: action.payload}})
-        }
+        },
     },
     getEmpty()
 );
