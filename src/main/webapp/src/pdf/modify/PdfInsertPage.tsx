@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {Button} from "@material-ui/core";
+import {Button, TextField} from "@material-ui/core";
 import {insertPage} from "../../utils/pdfUtils";
 import {IPdfInfo} from "../../state/models";
 import {isEmpty} from "../../utils/Uint8ArrayUtils";
@@ -19,9 +19,17 @@ export default class PdfInsert extends PureComponent<IPdfInsertProps> {
     public render() {
         return (
             <React.Fragment>
+                <TextField
+                    id="standard-number"
+                    label="Number"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
                 <Button variant="outlined" color="primary" onClick={this.insert}
                         style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}>
-                    Insert Page
+                    Insert new page
                 </Button>
             </React.Fragment>
         )
