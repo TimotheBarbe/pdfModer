@@ -1,7 +1,7 @@
 {
   "name": "pdfModer",
   "version": "1.0.0",
-  "homepage": "http://TimotheBarbe.github.io/pdfMod",
+  "homepage": "http://TimotheBarbe.github.io/pdfModer",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.13",
