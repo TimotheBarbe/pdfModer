@@ -8,7 +8,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PdfPreviewContainer from "../pdf/preview/PdfPreviewContainer";
 import PdfDownloadContainer from "../pdf/download/PdfDownloadContainer";
 import Scaffolder from "./Scaffolder";
-import PdfInsertContainer from "../pdf/modify/PdfInsertPageContainer";
+import PdfInsertPageContainer from "../pdf/modify/insert/PdfInsertPageContainer";
+import PdfDeletePageContainer from "../pdf/modify/delete/PdfDeletePageContainer";
 
 const theme = createMuiTheme({
     palette: {
@@ -30,10 +31,18 @@ class App extends React.PureComponent {
                             <PdfDownloadContainer/>
                             <ExpansionPanel>
                                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                    <Typography>Insert page</Typography>
+                                    <Typography>Insert</Typography>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails>
-                                    <PdfInsertContainer index={1}/>
+                                    <PdfInsertPageContainer index={1}/>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                    <Typography>Delete</Typography>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails>
+                                    <PdfDeletePageContainer/>
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                         </Grid>

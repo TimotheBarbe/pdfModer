@@ -1,8 +1,8 @@
 import React, {PureComponent} from "react";
 import {Button, TextField} from "@material-ui/core";
-import {insertPage} from "../../utils/pdfUtils";
-import {IPdfInfo} from "../../state/models";
-import {isEmpty} from "../../utils/Uint8ArrayUtils";
+import {insertPage} from "../../../utils/pdfUtils";
+import {IPdfInfo} from "../../../state/models";
+import {isEmpty} from "../../../utils/Uint8ArrayUtils";
 
 interface IPdfInsertProps {
     pdf: IPdfInfo;
