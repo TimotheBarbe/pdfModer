@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
 import {IPdfInfo, IStoreState} from "../../state/models";
-import {pdfPageCountSelector, pdfSelectedPageSelector, pdfSelector} from "../redux/selectors";
+import {pdfPageCountSelector, pdfSelectedPageSelector, pdfSelector} from "../redux/pdf/selectors";
 import {createStyles, Theme, withStyles} from "@material-ui/core";
 import PdfPage from "./PdfPage"
-import {loadPdfAction, selectPageAction} from "../redux/actions";
+import {loadPdfAction, selectPageAction} from "../redux/pdf/actions";
 
 const styles = (theme: Theme) =>
     createStyles({

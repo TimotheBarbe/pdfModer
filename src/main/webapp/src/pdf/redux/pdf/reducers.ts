@@ -1,7 +1,7 @@
 import {ActionTypes} from "./actions";
 import {Action, handleActions} from "redux-actions";
-import {getEmpty} from "../../utils/Uint8ArrayUtils";
-import {IPdfInfo} from "../../state/models";
+import {getEmpty} from "../../../utils/Uint8ArrayUtils";
+import {IForm, IPdfInfo} from "../../../state/models";
 import update from "immutability-helper";
 
 export const setPdfReducer = handleActions<any, any>(
@@ -15,3 +15,4 @@ export const setPdfReducer = handleActions<any, any>(
     },
     getEmpty()
 );
+

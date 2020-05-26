@@ -3,6 +3,8 @@ import {Button, TextField} from "@material-ui/core";
 import {insertPage} from "../../../utils/pdfUtils";
 import {IPdfInfo} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";
+import PlusIcon from '@material-ui/icons/';
+import AddIcon from '@material-ui/icons/Add';
 
 interface IPdfInsertProps {
     pdf: IPdfInfo;
@@ -21,14 +23,16 @@ export default class PdfInsert extends PureComponent<IPdfInsertProps> {
             <React.Fragment>
                 <TextField
                     id="standard-number"
-                    label="Number"
+                    label="After page"
                     type="number"
+                    // onChange={onChange}
                     InputLabelProps={{
                         shrink: true,
                     }}
                 />
                 <Button variant="outlined" color="primary" onClick={this.insert}
-                        style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}>
+                        style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}
+                        startIcon={<AddIcon/>}>
                     Insert new page
                 </Button>
             </React.Fragment>

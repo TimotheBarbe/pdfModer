@@ -4,6 +4,11 @@ export interface IPdfInfo {
     selectedPage: number;
 }
 
+export interface IForm {
+    remove: string;
+}
+
 export interface IStoreState {
     pdf: IPdfInfo;
+    form: IForm;
 }

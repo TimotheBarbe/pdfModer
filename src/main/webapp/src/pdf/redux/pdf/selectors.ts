@@ -1,4 +1,4 @@
-import {IStoreState} from "../../state/models";
+import {IStoreState} from "../../../state/models";
 
 export const pdfSelector = (state: IStoreState) => state.pdf;
 export const pdfDataSelector = (state: IStoreState) => pdfSelector(state).data;

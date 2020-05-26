@@ -1,5 +1,5 @@
 import {createAction} from "redux-actions";
-import {IPdfInfo} from "../../state/models";
+import {IPdfInfo} from "../../../state/models";
 
 const component = "pdf/";
 

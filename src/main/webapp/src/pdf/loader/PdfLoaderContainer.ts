@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
 import PdfLoader from "./PdfLoader";
 import {IPdfInfo, IStoreState} from "../../state/models";
-import {loadPdfAction} from "../redux/actions";
+import {loadPdfAction} from "../redux/pdf/actions";
 import {createStyles, Theme, withStyles} from "@material-ui/core";
 
 const styles = (theme: Theme) =>
