@@ -34,7 +34,7 @@ class App extends React.PureComponent {
                                     <Typography>Insert</Typography>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails>
-                                    <PdfInsertPageContainer index={1}/>
+                                    <PdfInsertPageContainer/>
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                             <ExpansionPanel>

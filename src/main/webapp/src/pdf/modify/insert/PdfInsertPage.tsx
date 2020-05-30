@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {ChangeEvent, PureComponent} from "react";
 import {Button, TextField} from "@material-ui/core";
 import {insertPage} from "../../../utils/pdfUtils";
 import {IPdfInfo} from "../../../state/models";
@@ -8,30 +8,40 @@ import AddIcon from '@material-ui/icons/Add';
 
 interface IPdfInsertProps {
     pdf: IPdfInfo;
+    insert: string;
+
     load: (data: IPdfInfo) => void;
-    index: number;
+    setInsert: (data: string) => void;
 }
 
-export default class PdfInsert extends PureComponent<IPdfInsertProps> {
+export default class PdfInsertPage extends PureComponent<IPdfInsertProps> {
 
     private insert = () => {
-        insertPage(this.props.pdf, this.props.index).then(this.props.load)
+        const pos = this.props.insert;
+        if (!isNaN(+pos)) {
+            insertPage(this.props.pdf, +pos - 1).then(this.props.load)
+        }
+    }
+
+    private setInsert = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        this.props.setInsert(event.target.value)
     }
 
     public render() {
+        const {insert} = this.props;
         return (
             <React.Fragment>
                 <TextField
-                    id="standard-number"
-                    label="After page"
-                    type="number"
-                    // onChange={onChange}
+                    label="Before page"
+                    type="text"
+                    value={insert}
+                    onChange={this.setInsert}
                     InputLabelProps={{
                         shrink: true,
                     }}
                 />
                 <Button variant="outlined" color="primary" onClick={this.insert}
-                        style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}
+                        style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf) || isNaN(+insert)}
                         startIcon={<AddIcon/>}>
                     Insert new page
                 </Button>

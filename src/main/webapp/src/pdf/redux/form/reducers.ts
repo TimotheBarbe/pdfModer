@@ -2,7 +2,6 @@ import {ActionTypes} from "./actions";
 import {Action, handleActions} from "redux-actions";
 import {IForm} from "../../../state/models";
 import update from "immutability-helper";
-import {act} from "react-dom/test-utils";
 
 export const setFormReducer = handleActions<any, any>(
     {
@@ -11,7 +10,10 @@ export const setFormReducer = handleActions<any, any>(
         },
         [ActionTypes.setRemove]: (state: IForm, action: Action<string>) => {
             return update(state, {remove: {$set: action.payload}}) as IForm
+        },
+        [ActionTypes.setInsert]: (state: IForm, action: Action<string>) => {
+            return update(state, {insert: {$set: action.payload}}) as IForm
         }
     },
-    {remove: ""}
+    {remove: "", insert: "1"} as IForm
 );

@@ -6,6 +6,7 @@ export interface IPdfInfo {
 
 export interface IForm {
     remove: string;
+    insert: string;
 }
 
 export interface IStoreState {
