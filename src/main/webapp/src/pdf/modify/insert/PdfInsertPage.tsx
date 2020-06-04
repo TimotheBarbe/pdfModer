@@ -1,10 +1,11 @@
 import React, {ChangeEvent, PureComponent} from "react";
-import {Button, TextField} from "@material-ui/core";
+import {Button, Grid, TextField} from "@material-ui/core";
 import {insertPage} from "../../../utils/pdfUtils";
 import {IPdfInfo} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";
-import PlusIcon from '@material-ui/icons/';
 import AddIcon from '@material-ui/icons/Add';
+import PdfLoaderContainer from "../../loader/PdfLoaderContainer";
+import Scaffolder from "../../../components/Scaffolder";
 
 interface IPdfInsertProps {
     pdf: IPdfInfo;
@@ -30,22 +31,28 @@ export default class PdfInsertPage extends PureComponent<IPdfInsertProps> {
     public render() {
         const {insert} = this.props;
         return (
-            <React.Fragment>
-                <TextField
-                    label="Before page"
-                    type="text"
-                    value={insert}
-                    onChange={this.setInsert}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-                <Button variant="outlined" color="primary" onClick={this.insert}
-                        style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf) || isNaN(+insert)}
-                        startIcon={<AddIcon/>}>
-                    Insert new page
-                </Button>
-            </React.Fragment>
+            <Grid container={true} spacing={3}>
+                <Grid item={true} xs={12}>
+                    <TextField
+                        label="Before page"
+                        type="text"
+                        value={insert}
+                        onChange={this.setInsert}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                    <Button variant="outlined" color="primary" onClick={this.insert}
+                            style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf) || isNaN(+insert)}
+                            startIcon={<AddIcon/>}>
+                        Insert new page
+                    </Button>
+                </Grid>
+                <Grid item={true} xs={12}>
+                    Insert doc
+                    <PdfLoaderContainer/>
+                </Grid>
+            </Grid>
         )
     }
 }

@@ -4,6 +4,7 @@ import PdfLoader from "./PdfLoader";
 import {IPdfInfo, IStoreState} from "../../state/models";
 import {loadPdfAction} from "../redux/pdf/actions";
 import {createStyles, Theme, withStyles} from "@material-ui/core";
+import {pdfSelector} from "../redux/pdf/selectors";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -23,7 +24,9 @@ const styles = (theme: Theme) =>
         }
     })
 
-const mapStateToProps = (state: IStoreState) => ({});
+const mapStateToProps = (state: IStoreState) => ({
+    pdf: pdfSelector(state),
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
     load: (data: IPdfInfo) => dispatch(loadPdfAction(data)),
