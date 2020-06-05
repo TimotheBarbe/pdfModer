@@ -36,8 +36,8 @@ export default class PdfPage extends PureComponent<IPdfPageProps> {
                         <DeleteIcon fontSize="small"/>
                     </IconButton>
                 </div>
-                <Page className={classes.page} width={420} height={594} scale={scale}
-                      pageIndex={index}/>
+                <Page className={classes.page} scale={scale} width={595} height={841}
+                      pageIndex={index} renderAnnotationLayer={false}/>
             </div>
         )
     }

@@ -13,7 +13,7 @@ const styles = (theme: Theme) =>
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding: "20px",
+            // padding: "20px",
             borderWidth: "2px",
             borderRadius: "2px",
             borderColor: theme.palette.secondary.main,

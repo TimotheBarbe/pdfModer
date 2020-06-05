@@ -27,11 +27,11 @@ class App extends React.PureComponent {
                 <CssBaseline/>
                 <Scaffolder>
                     <Grid container={true} spacing={3}>
-                        <Grid item={true} xs={4}>
+                        <Grid item={true} xs={3}>
                             <PdfDownloadContainer/>
                             <ExpansionPanel>
                                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                    <Typography>Insert</Typography>
+                                    <Typography>Insert page</Typography>
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails>
                                     <PdfInsertPageContainer/>
@@ -46,7 +46,7 @@ class App extends React.PureComponent {
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                         </Grid>
-                        <Grid item={true} xs={8}>
+                        <Grid item={true} xs={9}>
                             <PdfPreviewContainer/>
                         </Grid>
                     </Grid>

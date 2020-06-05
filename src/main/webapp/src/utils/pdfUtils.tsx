@@ -39,6 +39,7 @@ export async function mergePdf(start: IPdfInfo, end: IPdfInfo): Promise<IPdfInfo
     const endDoc = await PDFDocument.load(end.data);
     const contentPages = await startDoc.copyPages(endDoc, endDoc.getPageIndices());
     for (const page of contentPages) {
+        console.log(page.getSize())
         startDoc.addPage(page);
     }
     const data = await startDoc.save();

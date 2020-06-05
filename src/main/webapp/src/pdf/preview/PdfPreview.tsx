@@ -15,7 +15,7 @@ interface IPdfPreviewProps extends WithStyles {
 export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
 
     public render() {
-        const {pdf, selectedPage} = this.props;
+        const {pdf, selectedPage, classes} = this.props;
         const noPdf = isEmpty(pdf);
 
         const before = Array.from(Array(pdf.selectedPage).keys()).slice(-2)
@@ -26,20 +26,22 @@ export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
                 {noPdf && <PdfLoaderContainer/>}
                 {!noPdf && <Document file={{data: pdf.data}}>
                     <Grid container={true} spacing={3}>
-                        <Grid item={true} xs={3}>
+                        <Grid item={true} xs={2}>
                             {before.map((index) => (
                                     index !== selectedPage &&
-                                    <PdfPageContainer key={index} selected={false} index={index} scale={0.5}/>
+                                    <PdfPageContainer key={index} selected={false} index={index} scale={0.2}/>
                                 )
                             )}
                         </Grid>
-                        <Grid item={true} xs={6}>
-                            <PdfPageContainer selected={true} index={selectedPage} scale={1}/>
+                        <Grid item={true} xs={8}>
+                            <div className={classes.content}>
+                                <PdfPageContainer selected={true} index={selectedPage} scale={1}/>
+                            </div>
                         </Grid>
-                        <Grid item={true} xs={3}>
+                        <Grid item={true} xs={2}>
                             {after.map((index) => (
                                     index !== selectedPage &&
-                                    <PdfPageContainer key={index} selected={false} index={index} scale={0.5}/>
+                                    <PdfPageContainer key={index} selected={false} index={index} scale={0.2}/>
                                 )
                             )}
                         </Grid>
