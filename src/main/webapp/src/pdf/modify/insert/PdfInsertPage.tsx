@@ -45,7 +45,7 @@ export default class PdfInsertPage extends PureComponent<IPdfInsertProps> {
                     <Button variant="outlined" color="primary" onClick={this.insert}
                             style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf) || isNaN(+insert)}
                             startIcon={<AddIcon/>}>
-                        Insert new page
+                        new page
                     </Button>
                 </Grid>
                 <Grid item={true} xs={12}>

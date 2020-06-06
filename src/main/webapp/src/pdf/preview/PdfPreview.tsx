@@ -3,16 +3,21 @@ import {Document} from "react-pdf";
 import {isEmpty} from "../../utils/Uint8ArrayUtils";
 import PdfLoaderContainer from "../loader/PdfLoaderContainer";
 import {IPdfInfo} from "../../state/models";
-import {Grid, WithStyles} from "@material-ui/core";
+import {Grid, IconButton, WithStyles} from "@material-ui/core";
 import PdfPageContainer from "./PdfPageContainer";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 interface IPdfPreviewProps extends WithStyles {
     pdf: IPdfInfo;
     selectedPage: number;
+
+    selectPage: (index: number) => void;
 }
 
 
 export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
+    private selectPage = (index: number) => (event: React.MouseEvent<any>) => this.props.selectPage(index)
 
     public render() {
         const {pdf, selectedPage, classes} = this.props;
@@ -27,6 +32,10 @@ export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
                 {!noPdf && <Document file={{data: pdf.data}}>
                     <Grid container={true} spacing={3}>
                         <Grid item={true} xs={2}>
+                            <IconButton aria-label="previous" disabled={selectedPage <= 0}
+                                        onClick={this.selectPage(selectedPage - 1)}>
+                                <ArrowBackIcon fontSize="small"/>
+                            </IconButton>
                             {before.map((index) => (
                                     index !== selectedPage &&
                                     <PdfPageContainer key={index} selected={false} index={index} scale={0.2}/>
@@ -39,6 +48,10 @@ export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
                             </div>
                         </Grid>
                         <Grid item={true} xs={2}>
+                            <IconButton aria-label="next" disabled={selectedPage >= pdf.pageCount - 1}
+                                        onClick={this.selectPage(selectedPage + 1)}>
+                                <ArrowForwardIcon fontSize="small"/>
+                            </IconButton>
                             {after.map((index) => (
                                     index !== selectedPage &&
                                     <PdfPageContainer key={index} selected={false} index={index} scale={0.2}/>
