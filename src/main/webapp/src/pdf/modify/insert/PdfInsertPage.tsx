@@ -6,6 +6,8 @@ import {isEmpty} from "../../../utils/Uint8ArrayUtils";
 import AddIcon from '@material-ui/icons/Add';
 import PdfLoaderContainer from "../../loader/PdfLoaderContainer";
 import Scaffolder from "../../../components/Scaffolder";
+import {isInterval} from "../../../utils/stringUtils";
+import {setString} from "../../../utils/formUtils";
 
 interface IPdfInsertProps {
     pdf: IPdfInfo;
@@ -24,12 +26,13 @@ export default class PdfInsertPage extends PureComponent<IPdfInsertProps> {
         }
     }
 
-    private setInsert = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        this.props.setInsert(event.target.value)
+    private isDisabled = () => {
+        const isNotValidNumber = isNaN(+this.props.insert) || +this.props.insert < 1;
+        return isEmpty(this.props.pdf) || (isNotValidNumber)
     }
 
     public render() {
-        const {insert} = this.props;
+        const {insert, setInsert} = this.props;
         return (
             <Grid container={true} spacing={3}>
                 <Grid item={true} xs={12}>
@@ -37,13 +40,13 @@ export default class PdfInsertPage extends PureComponent<IPdfInsertProps> {
                         label="Before page"
                         type="text"
                         value={insert}
-                        onChange={this.setInsert}
+                        onChange={setString(setInsert)}
                         InputLabelProps={{
                             shrink: true,
                         }}
                     />
                     <Button variant="outlined" color="primary" onClick={this.insert}
-                            style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf) || isNaN(+insert)}
+                            style={{margin: "0 10px 10px 0"}} disabled={this.isDisabled()}
                             startIcon={<AddIcon/>}>
                         new page
                     </Button>

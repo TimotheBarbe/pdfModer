@@ -5,6 +5,7 @@ import {IPdfInfo} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {getInterval, isInterval} from "../../../utils/stringUtils";
+import {setString} from "../../../utils/formUtils";
 
 
 interface IPdfDeleteProps {
@@ -29,20 +30,20 @@ export default class PdfDeletePage extends Component<IPdfDeleteProps> {
         }
     }
 
-    private setRemove = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-        this.props.setRemove(event.target.value)
-
-    private isDisabled = () => isEmpty(this.props.pdf) || (isNaN(+this.props.remove) && !isInterval(this.props.remove))
+    private isDisabled = () => {
+        const isNotValidNumber = isNaN(+this.props.remove) || +this.props.remove < 1;
+        return isEmpty(this.props.pdf) || (isNotValidNumber && !isInterval(this.props.remove))
+    }
 
     public render() {
-        const {pdf, remove} = this.props;
+        const {pdf, remove, setRemove} = this.props;
         return (
             <React.Fragment>
                 <TextField
                     label={"Pages to delete"}
                     type={"text"}
                     value={remove}
-                    onChange={this.setRemove}
+                    onChange={setString(setRemove)}
                     placeholder={"ex: 5-8 or 8"}
                     InputLabelProps={{
                         shrink: true,

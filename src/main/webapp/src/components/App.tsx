@@ -10,6 +10,7 @@ import PdfDownloadContainer from "../pdf/download/PdfDownloadContainer";
 import Scaffolder from "./Scaffolder";
 import PdfInsertPageContainer from "../pdf/modify/insert/PdfInsertPageContainer";
 import PdfDeletePageContainer from "../pdf/modify/delete/PdfDeletePageContainer";
+import PdfInsertTextContainer from "../pdf/modify/text/PdfInsertTextContainer";
 
 const theme = createMuiTheme({
     palette: {
@@ -43,6 +44,14 @@ class App extends React.PureComponent {
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails>
                                     <PdfDeletePageContainer/>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                    <Typography>Add text</Typography>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails>
+                                    <PdfInsertTextContainer/>
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                         </Grid>
