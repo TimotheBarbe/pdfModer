@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {Button, Grid, TextField} from "@material-ui/core";
+import {Button, Grid, InputAdornment, TextField} from "@material-ui/core";
 import {drawText} from "../../../utils/pdfUtils";
 import {IPdfInfo, ITextOption} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";

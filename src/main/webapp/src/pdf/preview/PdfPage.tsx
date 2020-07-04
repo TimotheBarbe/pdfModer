@@ -20,8 +20,10 @@ interface IPdfPageProps extends WithStyles {
 
 export default class PdfPage extends PureComponent<IPdfPageProps> {
     private selectPage = (event: React.MouseEvent<any>) => this.props.selectPage(this.props.index)
-    private removePage = (event: React.MouseEvent<any>) => removePage(this.props.pdf, this.props.index)
-        .then(this.props.load)
+    private removePage = (event: React.MouseEvent<any>) => {
+        event.stopPropagation();
+        removePage(this.props.pdf, this.props.index).then(this.props.load);
+    }
 
     public render() {
         const {index, classes, scale, selected, pageCount} = this.props;
