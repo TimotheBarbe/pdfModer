@@ -1,18 +1,25 @@
 import {ActionTypes} from "./actions";
 import {Action, handleActions} from "redux-actions";
 import {getEmpty} from "../../../utils/Uint8ArrayUtils";
-import {IForm, IPdfInfo} from "../../../state/models";
+import {IPdfInfo, IPdfWithVersion} from "../../../state/models";
 import update from "immutability-helper";
 
 export const setPdfReducer = handleActions<any, any>(
     {
-        [ActionTypes.load]: (state: IPdfInfo, action: Action<IPdfInfo>) => {
-            return action.payload as IPdfInfo;
+        [ActionTypes.load]: (state: IPdfWithVersion, action: Action<IPdfInfo>) => {
+            return update(state, {
+                versions: {$push: [action.payload as IPdfInfo]},
+                position: {$set: state.position + 1}
+            })
         },
-        [ActionTypes.selectPage]: (state: IPdfInfo, action: Action<number>) => {
-            return update(state, {selectedPage: {$set: action.payload}})
+        [ActionTypes.selectPage]: (state: IPdfWithVersion, action: Action<number>) => {
+            const position = state.position
+            return update(state, {versions: {[position]: {selectedPage: {$set: action.payload}}}})
+        },
+        [ActionTypes.changeVersion]: (state: IPdfWithVersion, action: Action<number>) => {
+            const position = state.position
+            return update(state, {position: {$set: position + action.payload}})
         },
     },
-    getEmpty()
+    {versions: [getEmpty()], position: 0} as IPdfWithVersion
 );
-

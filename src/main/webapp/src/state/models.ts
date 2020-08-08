@@ -22,8 +22,13 @@ export interface IForm {
     textOption: ITextOption;
 }
 
+export interface IPdfWithVersion {
+    versions: IPdfInfo[];
+    position: number;
+}
+
 export interface IStoreState {
-    pdf: IPdfInfo;
+    pdf: IPdfWithVersion;
     form: IForm;
 }
 
