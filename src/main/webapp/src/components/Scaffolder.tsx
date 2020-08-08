@@ -1,9 +1,8 @@
 import * as React from "react";
 import {AppBar, createStyles, Theme, Toolbar, Typography, withStyles, WithStyles} from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
-import MailIcon from '@material-ui/icons/Mail';
 import VersionSelectorContainer from "./version/VersionSelectorContainer";
+import IconButton from "@material-ui/core/IconButton";
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -25,6 +24,10 @@ class Scaffolder extends React.PureComponent<WithStyles> {
                             pdfModer
                         </Typography>
                         <VersionSelectorContainer/>
+                        <IconButton color={"inherit"} href={"https://github.com/TimotheBarbe/pdfModer"}
+                                    target={"_blank"}>
+                            <GitHubIcon/>
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 <main className={classes.content}>
