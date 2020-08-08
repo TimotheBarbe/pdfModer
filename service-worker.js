@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/pdfModer/precache-manifest.ca4500a1cacba0c01f7717dd3fea63c8.js"
+  "/pdfModer/precache-manifest.0564f2c67107c00c17fc8eb2cff20632.js"
 );
 
 workbox.clientsClaim();
