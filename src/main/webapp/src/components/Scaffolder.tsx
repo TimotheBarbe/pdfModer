@@ -3,6 +3,8 @@ import {AppBar, createStyles, Theme, Toolbar, Typography, withStyles, WithStyles
 import VersionSelectorContainer from "./version/VersionSelectorContainer";
 import IconButton from "@material-ui/core/IconButton";
 import GitHubIcon from '@material-ui/icons/GitHub';
+import ViewSelectorContainer from "./view/ViewSelectorContainer";
+import Divider from "@material-ui/core/Divider";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -24,6 +26,8 @@ class Scaffolder extends React.PureComponent<WithStyles> {
                             pdfModer
                         </Typography>
                         <VersionSelectorContainer/>
+                        <ViewSelectorContainer/>
+                        <Divider orientation="vertical" flexItem={true}/>
                         <IconButton color={"inherit"} href={"https://github.com/TimotheBarbe/pdfModer"}
                                     target={"_blank"}>
                             <GitHubIcon/>

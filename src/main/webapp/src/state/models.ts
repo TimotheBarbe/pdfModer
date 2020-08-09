@@ -27,8 +27,15 @@ export interface IPdfWithVersion {
     position: number;
 }
 
+export type View = "global" | "zoom";
+
+export interface IDisplay {
+    view: View
+}
+
 export interface IStoreState {
     pdf: IPdfWithVersion;
     form: IForm;
+    display: IDisplay
 }
 
