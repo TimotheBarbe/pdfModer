@@ -5,6 +5,7 @@ import PdfPreview from "./PdfPreview";
 import {pdfSelectedPageSelector, pdfSelector} from "../redux/pdf/selectors";
 import {createStyles, Theme, withStyles} from "@material-ui/core";
 import {selectPageAction} from "../redux/pdf/actions";
+import {displayViewSelector} from "../redux/display/selectors";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -22,6 +23,7 @@ const styles = (theme: Theme) =>
 const mapStateToProps = (state: IStoreState) => ({
     pdf: pdfSelector(state),
     selectedPage: pdfSelectedPageSelector(state),
+    view: displayViewSelector(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
