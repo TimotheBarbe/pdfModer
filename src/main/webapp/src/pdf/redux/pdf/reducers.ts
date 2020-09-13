@@ -8,7 +8,7 @@ export const setPdfReducer = handleActions<any, any>(
     {
         [ActionTypes.load]: (state: IPdfWithVersion, action: Action<IPdfInfo>) => {
             return update(state, {
-                versions: {$push: [action.payload as IPdfInfo]},
+                versions: {$splice: [[state.position + 1, state.versions.length, action.payload as IPdfInfo]]},
                 position: {$set: state.position + 1}
             })
         },
