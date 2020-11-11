@@ -58,3 +58,11 @@ export async function drawText(state: IPdfInfo, option: ITextOption): Promise<IP
     const data = await doc.save();
     return update(state, {data: {$set: data}})
 }
+
+export async function rotatePage(state: IPdfInfo, angle: number): Promise<IPdfInfo> {
+    const doc = await PDFDocument.load(state.data);
+    const page = doc.getPage(state.selectedPage);
+    page.setRotation(degrees(page.getRotation().angle + angle))
+    const data = await doc.save();
+    return update(state, {data: {$set: data}})
+}

@@ -11,6 +11,7 @@ import Scaffolder from "./Scaffolder";
 import PdfInsertPageContainer from "../pdf/modify/insert/PdfInsertPageContainer";
 import PdfDeletePageContainer from "../pdf/modify/delete/PdfDeletePageContainer";
 import PdfInsertTextContainer from "../pdf/modify/text/PdfInsertTextContainer";
+import PdfRotationPageContainer from "../pdf/modify/rotation/PdfRotationPageContainer";
 
 const theme = createMuiTheme({
     palette: {
@@ -52,6 +53,14 @@ class App extends React.PureComponent {
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails>
                                     <PdfInsertTextContainer/>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                    <Typography>Rotate</Typography>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails>
+                                    <PdfRotationPageContainer/>
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                         </Grid>
