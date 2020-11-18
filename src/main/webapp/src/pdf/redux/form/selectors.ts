@@ -11,3 +11,11 @@ export const formTextRotateSelector = (state: IStoreState) => formTextOptionSele
 export const formTextColorSelector = (state: IStoreState) => formTextOptionSelector(state).color;
 export const formTextSizeSelector = (state: IStoreState) => formTextOptionSelector(state).size;
 export const formTextSelector = (state: IStoreState) => formTextOptionSelector(state).text;
+
+export const formRectangleOptionSelector = (state: IStoreState) => formSelector(state).rectangleOption;
+export const formRectangleXSelector = (state: IStoreState) => formRectangleOptionSelector(state).x;
+export const formRectangleYSelector = (state: IStoreState) => formRectangleOptionSelector(state).y;
+export const formRectangleRotateSelector = (state: IStoreState) => formRectangleOptionSelector(state).rotate;
+export const formRectangleHeightSelector = (state: IStoreState) => formRectangleOptionSelector(state).height;
+export const formRectangleWidthSelector = (state: IStoreState) => formRectangleOptionSelector(state).width;
+export const formRectangleColorSelector = (state: IStoreState) => formRectangleOptionSelector(state).color;

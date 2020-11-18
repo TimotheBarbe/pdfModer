@@ -1,5 +1,5 @@
 import {degrees, PDFDocument} from "pdf-lib";
-import {IPdfInfo, ITextOption} from "../state/models";
+import {IPdfInfo, IRectangleOption, ITextOption} from "../state/models";
 import update from 'immutability-helper';
 import {isEmpty} from "./Uint8ArrayUtils";
 import {toRgb} from "./stringUtils";
@@ -55,6 +55,15 @@ export async function drawText(state: IPdfInfo, option: ITextOption): Promise<IP
     const page = doc.getPage(state.selectedPage);
     const {color, rotate, size, x, y, text} = option
     page.drawText(text, {x, y, rotate: degrees(rotate), size, color: toRgb(color), lineHeight: size})
+    const data = await doc.save();
+    return update(state, {data: {$set: data}})
+}
+
+export async function drawRectangle(state: IPdfInfo, option: IRectangleOption): Promise<IPdfInfo> {
+    const doc = await PDFDocument.load(state.data);
+    const page = doc.getPage(state.selectedPage);
+    const {rotate, x, y, width, height, color} = option
+    page.drawRectangle({x, y, rotate: degrees(rotate), color: toRgb(color), width, height, borderWidth: 0})
     const data = await doc.save();
     return update(state, {data: {$set: data}})
 }

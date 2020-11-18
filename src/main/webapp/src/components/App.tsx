@@ -12,6 +12,7 @@ import PdfInsertPageContainer from "../pdf/modify/insert/PdfInsertPageContainer"
 import PdfDeletePageContainer from "../pdf/modify/delete/PdfDeletePageContainer";
 import PdfInsertTextContainer from "../pdf/modify/text/PdfInsertTextContainer";
 import PdfRotationPageContainer from "../pdf/modify/rotation/PdfRotationPageContainer";
+import PdfInsertRectangleContainer from "../pdf/modify/rectangle/PdfInsertRectangleContainer";
 
 const theme = createMuiTheme({
     palette: {
@@ -53,6 +54,14 @@ class App extends React.PureComponent {
                                 </ExpansionPanelSummary>
                                 <ExpansionPanelDetails>
                                     <PdfInsertTextContainer/>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                    <Typography>Add rectangle</Typography>
+                                </ExpansionPanelSummary>
+                                <ExpansionPanelDetails>
+                                    <PdfInsertRectangleContainer/>
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                             <ExpansionPanel>

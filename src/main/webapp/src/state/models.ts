@@ -16,10 +16,25 @@ export interface ITextOption {
     text: string;
 }
 
+export interface IRectangleOption {
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+    rotate: number,
+    // borderWidth: number,
+    // borderColor: grayscale(0.5),
+    color: string,
+    // opacity: 0.5,
+    // borderOpacity: 0.75,
+}
+
+
 export interface IForm {
     remove: string;
     insert: string;
     textOption: ITextOption;
+    rectangleOption: IRectangleOption;
 }
 
 export interface IPdfWithVersion {
