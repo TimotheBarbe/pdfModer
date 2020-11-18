@@ -1,5 +1,5 @@
 # pdfModer
-Modify freely your PDF 
+Freely modify your PDF 
 
 - add/delete pages
 - merge pdfs
