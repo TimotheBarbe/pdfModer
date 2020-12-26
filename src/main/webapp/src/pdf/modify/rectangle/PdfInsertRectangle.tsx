@@ -86,14 +86,7 @@ export default class PdfInsertRectangle extends PureComponent<IPdfInsertRectangl
                     />
                 </Grid>
                 <Grid item={true} xs={6}>
-                    <TextField
-                        label="Color"
-                        type="text"
-                        placeholder={"ex: #000000"}
-                        value={color}
-                        onChange={setString(setRectangleColor)}
-                        InputLabelProps={{shrink: true}}
-                    />
+                    <input type="color" id="head" name="head" value={color} onChange={setString(setRectangleColor)}/>
                 </Grid>
                 <Grid item={true} xs={6}>
                     <Button variant="outlined" color="primary" onClick={this.insert}

@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {Button, Grid, InputAdornment, TextField} from "@material-ui/core";
+import {Button, Grid, TextField} from "@material-ui/core";
 import {drawText} from "../../../utils/pdfUtils";
 import {IPdfInfo, ITextOption} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";
@@ -90,15 +90,9 @@ export default class PdfInsertText extends PureComponent<IPdfInsertTextProps> {
                     />
                 </Grid>
                 <Grid item={true} xs={6}>
-                    <TextField
-                        label="Color"
-                        type="text"
-                        placeholder={"ex: #000000"}
-                        value={color}
-                        onChange={setString(setTextColor)}
-                        InputLabelProps={{shrink: true}}
-                    />
+                    <input type="color" id="head" name="head" value={color} onChange={setString(setTextColor)}/>
                 </Grid>
+
                 <Grid item={true} xs={6}>
                     <Button variant="outlined" color="primary" onClick={this.insert}
                             style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}
