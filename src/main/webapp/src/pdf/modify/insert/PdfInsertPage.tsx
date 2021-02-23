@@ -1,12 +1,10 @@
-import React, {ChangeEvent, PureComponent} from "react";
+import React, {PureComponent} from "react";
 import {Button, Grid, TextField} from "@material-ui/core";
 import {insertPage} from "../../../utils/pdfUtils";
 import {IPdfInfo} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";
 import AddIcon from '@material-ui/icons/Add';
 import PdfLoaderContainer from "../../loader/PdfLoaderContainer";
-import Scaffolder from "../../../components/Scaffolder";
-import {isInterval} from "../../../utils/stringUtils";
 import {setString} from "../../../utils/formUtils";
 
 interface IPdfInsertProps {

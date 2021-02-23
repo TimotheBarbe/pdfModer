@@ -4,6 +4,13 @@ import update from 'immutability-helper';
 import {isEmpty} from "./Uint8ArrayUtils";
 import {toRgb} from "./stringUtils";
 
+export async function createBlank(): Promise<IPdfInfo> {
+    const doc = await PDFDocument.create()
+    const page = doc.addPage()
+    const data = await doc.save();
+    return {data, pageCount: 1, selectedPage: 0} as IPdfInfo
+}
+
 export async function insertPage(state: IPdfInfo, index: number): Promise<IPdfInfo> {
     const doc = await PDFDocument.load(state.data);
     doc.insertPage(index);

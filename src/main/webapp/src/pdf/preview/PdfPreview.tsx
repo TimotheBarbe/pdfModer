@@ -7,6 +7,7 @@ import {Grid, IconButton, WithStyles} from "@material-ui/core";
 import PdfPageContainer from "./PdfPageContainer";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import PdfCreateBlankDocContainer from "../loader/PdfCreateBlankDocContainer";
 
 interface IPdfPreviewProps extends WithStyles {
     pdf: IPdfInfo;
@@ -30,7 +31,15 @@ export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
 
         return (
             <React.Fragment>
-                {noPdf && <PdfLoaderContainer/>}
+                {noPdf &&
+                <Grid container={true} spacing={3}>
+                    <Grid item={true} xs={2}>
+                        <PdfCreateBlankDocContainer/>
+                    </Grid>
+                    <Grid item={true} xs={10}>
+                        <PdfLoaderContainer/>
+                    </Grid>
+                </Grid>}
                 {!noPdf && <Document file={{data: pdf.data}}>
                     <Grid container={true} spacing={3}>
                         {view === "zoom" &&
