@@ -19,3 +19,4 @@ export const formRectangleRotateSelector = (state: IStoreState) => formRectangle
 export const formRectangleHeightSelector = (state: IStoreState) => formRectangleOptionSelector(state).height;
 export const formRectangleWidthSelector = (state: IStoreState) => formRectangleOptionSelector(state).width;
 export const formRectangleColorSelector = (state: IStoreState) => formRectangleOptionSelector(state).color;
+export const formRectangleOpacitySelector = (state: IStoreState) => formRectangleOptionSelector(state).opacity;

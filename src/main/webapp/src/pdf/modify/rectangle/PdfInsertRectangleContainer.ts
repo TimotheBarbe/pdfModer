@@ -6,7 +6,7 @@ import {loadPdfAction} from "../../redux/pdf/actions";
 import PdfInsertRectangle from "./PdfInsertRectangle";
 import {
     formRectangleColorSelector,
-    formRectangleHeightSelector,
+    formRectangleHeightSelector, formRectangleOpacitySelector,
     formRectangleRotateSelector,
     formRectangleWidthSelector,
     formRectangleXSelector,
@@ -14,7 +14,7 @@ import {
 } from "../../redux/form/selectors";
 import {
     setRectangleColorAction,
-    setRectangleHeightAction,
+    setRectangleHeightAction, setRectangleOpacityAction,
     setRectangleRotateAction,
     setRectangleWidthAction,
     setRectangleXAction,
@@ -29,6 +29,7 @@ const mapStateToProps = (state: IStoreState) => ({
     width: formRectangleWidthSelector(state),
     height: formRectangleHeightSelector(state),
     color: formRectangleColorSelector(state),
+    opacity: formRectangleOpacitySelector(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
@@ -39,6 +40,7 @@ const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
     setRectangleWidth: (data: number) => dispatch(setRectangleWidthAction(data)),
     setRectangleHeight: (data: number) => dispatch(setRectangleHeightAction(data)),
     setRectangleColor: (data: string) => dispatch(setRectangleColorAction(data)),
+    setRectangleOpacity: (data: number) => dispatch(setRectangleOpacityAction(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PdfInsertRectangle);

@@ -15,6 +15,7 @@ interface IPdfInsertRectangleProps extends IRectangleOption {
     setRectangleWidth: (data: number) => void;
     setRectangleHeight: (data: number) => void;
     setRectangleColor: (data: string) => void;
+    setRectangleOpacity: (data: number) => void;
 }
 
 export default class PdfInsertRectangle extends PureComponent<IPdfInsertRectangleProps> {
@@ -26,7 +27,7 @@ export default class PdfInsertRectangle extends PureComponent<IPdfInsertRectangl
     public render() {
         const {
             y, setRectangleY, x, setRectangleX, width, setRectangleWidth, rotate, setRectangleRotate,
-            height, setRectangleHeight, color, setRectangleColor
+            height, setRectangleHeight, color, setRectangleColor, opacity, setRectangleOpacity
         } = this.props;
         return (
             <Grid container={true} spacing={3}>
@@ -74,7 +75,7 @@ export default class PdfInsertRectangle extends PureComponent<IPdfInsertRectangl
                         inputProps={{min: "0"}}
                     />
                 </Grid>
-                <Grid item={true} xs={6}>
+                <Grid item={true} xs={4}>
                     <TextField
                         label="Rotate"
                         type="number"
@@ -85,10 +86,21 @@ export default class PdfInsertRectangle extends PureComponent<IPdfInsertRectangl
                         inputProps={{min: "0"}}
                     />
                 </Grid>
-                <Grid item={true} xs={6}>
+                <Grid item={true} xs={4}>
+                    <TextField
+                        label="Opacity"
+                        type="number"
+                        placeholder={"ex: 0.5"}
+                        value={opacity}
+                        onChange={setNumber(setRectangleOpacity)}
+                        InputLabelProps={{shrink: true}}
+                        inputProps={{min: 0, step: 0.1, max: 1}}
+                    />
+                </Grid>
+                <Grid item={true} xs={4}>
                     <input type="color" id="head" name="head" value={color} onChange={setString(setRectangleColor)}/>
                 </Grid>
-                <Grid item={true} xs={6}>
+                <Grid item={true} xs={4}>
                     <Button variant="outlined" color="primary" onClick={this.insert}
                             style={{margin: "0 10px 10px 0"}} disabled={isEmpty(this.props.pdf)}
                             startIcon={<AddIcon/>}>

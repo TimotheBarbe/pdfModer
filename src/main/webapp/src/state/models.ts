@@ -25,7 +25,7 @@ export interface IRectangleOption {
     // borderWidth: number,
     // borderColor: grayscale(0.5),
     color: string,
-    // opacity: 0.5,
+    opacity: number,
     // borderOpacity: 0.75,
 }
 

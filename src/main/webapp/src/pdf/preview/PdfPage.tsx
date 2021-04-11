@@ -39,7 +39,7 @@ export default class PdfPage extends PureComponent<IPdfPageProps> {
                     </IconButton>
                 </div>
                 <Page className={classes.page} scale={scale} width={595}
-                      pageIndex={index} renderAnnotationLayer={false}/>
+                      pageIndex={index} renderAnnotationLayer={false} key={`page_${index + 1}`}/>
             </div>
         )
     }

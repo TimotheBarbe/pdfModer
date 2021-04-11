@@ -67,8 +67,11 @@ export const setRectangleOptionReducer = handleActions<any, any>(
         [ActionTypes.setRectangleColor]: (state: IRectangleOption, action: Action<string>) => {
             return update(state, {color: {$set: action.payload}})
         },
+        [ActionTypes.setRectangleOpacity]: (state: IRectangleOption, action: Action<number>) => {
+            return update(state, {opacity: {$set: action.payload}})
+        },
     },
-    {rotate: 0, x: 0, y: 0, width: 10, height: 10, color: ""} as IRectangleOption
+    {rotate: 0, x: 0, y: 0, width: 10, height: 10, color: "", opacity: 1} as IRectangleOption
 );
 
 export const setFormReducer = combineReducers({

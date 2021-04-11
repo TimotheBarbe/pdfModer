@@ -15,12 +15,13 @@ export const ActionTypes = {
     setTextRotate: component + "text/setTextRotate",
     setText: component + "text/setText",
 
-    setRectangleY: component + "Rectangle/setRectangleY",
-    setRectangleX: component + "Rectangle/setRectangleX",
-    setRectangleRotate: component + "Rectangle/setRectangleRotate",
-    setRectangleHeight: component + "Rectangle/setRectangleHeight",
-    setRectangleWidth: component + "Rectangle/setRectangleWidth",
-    setRectangleColor: component + "Rectangle/setRectangleColor",
+    setRectangleY: component + "rectangle/setRectangleY",
+    setRectangleX: component + "rectangle/setRectangleX",
+    setRectangleRotate: component + "rectangle/setRectangleRotate",
+    setRectangleHeight: component + "rectangle/setRectangleHeight",
+    setRectangleWidth: component + "rectangle/setRectangleWidth",
+    setRectangleColor: component + "rectangle/setRectangleColor",
+    setRectangleOpacity: component + "rectangle/setRectangleOpacity",
 
 };
 
@@ -42,3 +43,4 @@ export const setRectangleHeightAction = createAction<number>(ActionTypes.setRect
 export const setRectangleWidthAction = createAction<number>(ActionTypes.setRectangleWidth);
 export const setRectangleRotateAction = createAction<number>(ActionTypes.setRectangleRotate);
 export const setRectangleColorAction = createAction<string>(ActionTypes.setRectangleColor);
+export const setRectangleOpacityAction = createAction<number>(ActionTypes.setRectangleOpacity);

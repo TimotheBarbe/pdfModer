@@ -69,8 +69,8 @@ export async function drawText(state: IPdfInfo, option: ITextOption): Promise<IP
 export async function drawRectangle(state: IPdfInfo, option: IRectangleOption): Promise<IPdfInfo> {
     const doc = await PDFDocument.load(state.data);
     const page = doc.getPage(state.selectedPage);
-    const {rotate, x, y, width, height, color} = option
-    page.drawRectangle({x, y, rotate: degrees(rotate), color: toRgb(color), width, height, borderWidth: 0})
+    const {rotate, x, y, width, height, color, opacity} = option
+    page.drawRectangle({x, y, rotate: degrees(rotate), color: toRgb(color), width, height, borderWidth: 0, opacity})
     const data = await doc.save();
     return update(state, {data: {$set: data}})
 }

@@ -67,7 +67,7 @@ export default class PdfPreview extends PureComponent<IPdfPreviewProps> {
                                 </IconButton>
                                 {after.map((index) => (
                                         index !== selectedPage &&
-                                        <PdfPageContainer key={index} selected={false} index={index} scale={0.2}/>
+                                        <PdfPageContainer key={`p_${index + 1}`} selected={false} index={index} scale={0.2}/>
                                     )
                                 )}
                             </Grid>
