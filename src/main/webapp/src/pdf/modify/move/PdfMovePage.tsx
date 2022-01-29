@@ -1,11 +1,10 @@
-import React, {ChangeEvent, Component, PureComponent} from "react";
+import React, {PureComponent} from "react";
 import {Button, Grid, TextField} from "@material-ui/core";
-import {movePage, removePage, removePages} from "../../../utils/pdfUtils";
+import {movePage} from "../../../utils/pdfUtils";
 import {IMoveOption, IPdfInfo} from "../../../state/models";
 import {isEmpty} from "../../../utils/Uint8ArrayUtils";
-import DeleteIcon from '@material-ui/icons/Delete';
-import {getInterval, isInterval} from "../../../utils/stringUtils";
-import {setNumber, setString} from "../../../utils/formUtils";
+import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
+import {setString} from "../../../utils/formUtils";
 import update from "immutability-helper";
 
 
@@ -71,7 +70,7 @@ export default class PdfMovePage extends PureComponent<IPdfMoveProps> {
                 <Grid item={true} xs={4}>
                     <Button variant="outlined" color="primary" onClick={this.move}
                             style={{margin: "0 10px 10px 0"}} disabled={this.isDisabled()}
-                            startIcon={<DeleteIcon/>}>
+                            startIcon={<TrendingFlatIcon/>}>
                         Move
                     </Button>
                 </Grid>
