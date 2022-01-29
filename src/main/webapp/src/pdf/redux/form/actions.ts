@@ -1,11 +1,12 @@
 import {createAction} from "redux-actions";
-import {IForm} from "../../../state/models";
+import {IForm, IMoveOption} from "../../../state/models";
 
 const component = "form/";
 
 export const ActionTypes = {
     set: component + "set",
     setRemove: component + "setRemove",
+    setMove: component + "setMove",
     setInsert: component + "setInsert",
 
     setTextColor: component + "text/setTextColor",
@@ -28,6 +29,7 @@ export const ActionTypes = {
 export const setFormAction = createAction<IForm>(ActionTypes.set);
 
 export const setFormRemoveAction = createAction<string>(ActionTypes.setRemove);
+export const setFormMoveAction = createAction<IMoveOption>(ActionTypes.setMove);
 export const setFormInsertAction = createAction<string>(ActionTypes.setInsert);
 
 export const setTextColorAction = createAction<string>(ActionTypes.setTextColor);

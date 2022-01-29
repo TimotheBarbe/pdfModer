@@ -6,7 +6,7 @@ import {toRgb} from "./stringUtils";
 
 export async function createBlank(): Promise<IPdfInfo> {
     const doc = await PDFDocument.create()
-    const page = doc.addPage()
+    doc.addPage()
     const data = await doc.save();
     return {data, pageCount: 1, selectedPage: 0} as IPdfInfo
 }
@@ -32,6 +32,20 @@ export async function removePages(state: IPdfInfo, indexes: number[]): Promise<I
     }
     const data = await doc.save();
     return {data, pageCount: state.pageCount - indexes.length, selectedPage: state.selectedPage}
+}
+
+export async function movePage(state: IPdfInfo, from: number, to: number): Promise<IPdfInfo> {
+    const doc = await PDFDocument.load(state.data);
+    const page = doc.getPage(from);
+    if (from < to) {
+        doc.removePage(from);
+        doc.insertPage(to, page);
+    } else {
+        doc.insertPage(to, page);
+        doc.removePage(from + 1);
+    }
+    const data = await doc.save();
+    return update(state, {data: {$set: data}}) as IPdfInfo
 }
 
 export async function loadPdf(toLoad: string | ArrayBuffer): Promise<IPdfInfo> {

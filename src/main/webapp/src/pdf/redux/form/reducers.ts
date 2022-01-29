@@ -1,7 +1,7 @@
 import {ActionTypes} from "./actions";
 import {Action, handleActions} from "redux-actions";
 import {combineReducers} from "redux";
-import {IRectangleOption, ITextOption} from "../../../state/models";
+import {IMoveOption, IRectangleOption, ITextOption} from "../../../state/models";
 import update from "immutability-helper";
 
 
@@ -12,6 +12,15 @@ export const setRemoveReducer = handleActions<any, any>(
         },
     },
     ""
+);
+
+export const setMoveReducer = handleActions<any, any>(
+    {
+        [ActionTypes.setMove]: (state: string, action: Action<IMoveOption>) => {
+            return action.payload
+        },
+    },
+    {from: "", to: ""} as IMoveOption
 );
 
 export const setInsertReducer = handleActions<any, any>(
@@ -76,6 +85,7 @@ export const setRectangleOptionReducer = handleActions<any, any>(
 
 export const setFormReducer = combineReducers({
     remove: setRemoveReducer,
+    move: setMoveReducer,
     insert: setInsertReducer,
     textOption: setTextOptionReducer,
     rectangleOption: setRectangleOptionReducer

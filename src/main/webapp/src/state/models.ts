@@ -29,10 +29,15 @@ export interface IRectangleOption {
     // borderOpacity: 0.75,
 }
 
+export interface IMoveOption {
+    from: string,
+    to: string,
+}
 
 export interface IForm {
     remove: string;
     insert: string;
+    move: IMoveOption;
     textOption: ITextOption;
     rectangleOption: IRectangleOption;
 }

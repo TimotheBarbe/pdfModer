@@ -2,6 +2,7 @@ import {IStoreState} from "../../../state/models";
 
 export const formSelector = (state: IStoreState) => state.form;
 export const formRemoveSelector = (state: IStoreState) => formSelector(state).remove;
+export const formMoveSelector = (state: IStoreState) => formSelector(state).move;
 export const formInsertSelector = (state: IStoreState) => formSelector(state).insert;
 
 export const formTextOptionSelector = (state: IStoreState) => formSelector(state).textOption;
