@@ -1,9 +1,9 @@
 import "./App.css";
 
 import * as React from "react";
-import {CssBaseline, ExpansionPanel, ExpansionPanelDetails, Grid, Typography} from "@material-ui/core";
-import {createMuiTheme, MuiThemeProvider} from "@material-ui/core/styles";
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import {CssBaseline, Accordion, AccordionDetails, Grid, Typography} from "@material-ui/core";
+import {createTheme, MuiThemeProvider} from "@material-ui/core/styles";
+import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PdfPreviewContainer from "../pdf/preview/PdfPreviewContainer";
 import PdfDownloadContainer from "../pdf/download/PdfDownloadContainer";
@@ -15,7 +15,7 @@ import PdfRotationPageContainer from "../pdf/modify/rotation/PdfRotationPageCont
 import PdfInsertRectangleContainer from "../pdf/modify/rectangle/PdfInsertRectangleContainer";
 import PdfMovePageContainer from "../pdf/modify/move/PdfMovePageContainer";
 
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         primary: {main: "#ee3f3f"},
         secondary: {main: "#a09f9f"},
@@ -33,54 +33,54 @@ class App extends React.PureComponent {
                     <Grid container={true} spacing={3}>
                         <Grid item={true} xs={3}>
                             <PdfDownloadContainer/>
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography>Insert page</Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <PdfInsertPageContainer/>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography>Move</Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <PdfMovePageContainer/>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography>Delete</Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <PdfDeletePageContainer/>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography>Add text</Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <PdfInsertTextContainer/>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography>Add rectangle</Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <PdfInsertRectangleContainer/>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography>Rotate</Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <PdfRotationPageContainer/>
-                                </ExpansionPanelDetails>
-                            </ExpansionPanel>
+                                </AccordionDetails>
+                            </Accordion>
                         </Grid>
                         <Grid item={true} xs={9}>
                             <PdfPreviewContainer/>
