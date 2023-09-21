@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pdfModer/static/css/main.1ed5492e.css",
-    "main.js": "/pdfModer/static/js/main.b3348fd3.js",
+    "main.js": "/pdfModer/static/js/main.9dde8385.js",
     "index.html": "/pdfModer/index.html",
     "main.1ed5492e.css.map": "/pdfModer/static/css/main.1ed5492e.css.map",
-    "main.b3348fd3.js.map": "/pdfModer/static/js/main.b3348fd3.js.map"
+    "main.9dde8385.js.map": "/pdfModer/static/js/main.9dde8385.js.map"
   },
   "entrypoints": [
     "static/css/main.1ed5492e.css",
-    "static/js/main.b3348fd3.js"
+    "static/js/main.9dde8385.js"
   ]
 }
