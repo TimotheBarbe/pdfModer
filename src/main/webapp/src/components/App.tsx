@@ -14,6 +14,7 @@ import PdfInsertTextContainer from "../pdf/modify/text/PdfInsertTextContainer";
 import PdfRotationPageContainer from "../pdf/modify/rotation/PdfRotationPageContainer";
 import PdfInsertRectangleContainer from "../pdf/modify/rectangle/PdfInsertRectangleContainer";
 import PdfMovePageContainer from "../pdf/modify/move/PdfMovePageContainer";
+import PdfInsertImageContainer from "../pdf/modify/image/PdfInsertImageContainer";
 
 const theme = createTheme({
     palette: {
@@ -63,6 +64,14 @@ class App extends React.PureComponent {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <PdfInsertTextContainer/>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
+                                    <Typography>Add image</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <PdfInsertImageContainer/>
                                 </AccordionDetails>
                             </Accordion>
                             <Accordion>

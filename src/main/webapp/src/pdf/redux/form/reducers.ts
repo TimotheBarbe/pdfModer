@@ -1,7 +1,7 @@
 import {ActionTypes} from "./actions";
 import {Action, handleActions} from "redux-actions";
 import {combineReducers} from "redux";
-import {IMoveOption, IRectangleOption, ITextOption} from "../../../state/models";
+import {IImageOption, ImageFormat, IMoveOption, IRectangleOption, ITextOption} from "../../../state/models";
 import update from "immutability-helper";
 
 
@@ -56,6 +56,32 @@ export const setTextOptionReducer = handleActions<any, any>(
     {color: "", rotate: 0, size: 12, x: 0, y: 0, text: ""} as ITextOption
 );
 
+export const setImageOptionReducer = handleActions<any, any>(
+    {
+        [ActionTypes.setImageData]: (state: IImageOption, action: Action<Uint8Array>) => {
+            return update(state, {image: {data: {$set: action.payload}}})
+        },
+        [ActionTypes.setImageFormat]: (state: IImageOption, action: Action<ImageFormat>) => {
+            return update(state, {image: {format: {$set: action.payload}}})
+        },
+        [ActionTypes.setImageX]: (state: IImageOption, action: Action<number>) => {
+            return update(state, {x: {$set: action.payload}})
+        },
+        [ActionTypes.setImageY]: (state: IImageOption, action: Action<number>) => {
+            return update(state, {y: {$set: action.payload}})
+        },
+        [ActionTypes.setImageRotate]: (state: IImageOption, action: Action<number>) => {
+            return update(state, {rotate: {$set: action.payload}})
+        },
+        [ActionTypes.setImageScale]: (state: IImageOption, action: Action<number>) => {
+            return update(state, {scale: {$set: action.payload}})
+        },
+    },
+    {
+        image: {data: new Uint8Array(0), format: "empty" as ImageFormat}, rotate: 0, x: 0, y: 0, scale: 1
+    } as IImageOption
+);
+
 export const setRectangleOptionReducer = handleActions<any, any>(
     {
         [ActionTypes.setRectangleRotate]: (state: IRectangleOption, action: Action<number>) => {
@@ -88,6 +114,7 @@ export const setFormReducer = combineReducers({
     move: setMoveReducer,
     insert: setInsertReducer,
     textOption: setTextOptionReducer,
+    imageOption: setImageOptionReducer,
     rectangleOption: setRectangleOptionReducer
 })
 

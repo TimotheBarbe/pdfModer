@@ -34,7 +34,7 @@ export default class PdfMovePage extends PureComponent<IPdfMoveProps> {
 
     private isDisabled = () => {
         const isNotValidNumber = this.isValidNumber(this.props.move.from) || this.isValidNumber(this.props.move.to);
-        return isEmpty(this.props.pdf) || isNotValidNumber || this.props.move.from == this.props.move.to
+        return isEmpty(this.props.pdf) || isNotValidNumber || this.props.move.from === this.props.move.to
     }
 
     private isValidNumber(value: string) {
@@ -42,7 +42,7 @@ export default class PdfMovePage extends PureComponent<IPdfMoveProps> {
     }
 
     public render() {
-        const {pdf, move, setMove} = this.props;
+        const {move} = this.props;
         return (
             <Grid container={true} spacing={3}>
                 <Grid item={true} xs={4}>

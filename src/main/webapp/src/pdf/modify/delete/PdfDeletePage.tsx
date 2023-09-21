@@ -1,4 +1,4 @@
-import React, {ChangeEvent, Component} from "react";
+import React, {Component} from "react";
 import {Button, TextField} from "@material-ui/core";
 import {removePage, removePages} from "../../../utils/pdfUtils";
 import {IPdfInfo} from "../../../state/models";
@@ -36,7 +36,7 @@ export default class PdfDeletePage extends Component<IPdfDeleteProps> {
     }
 
     public render() {
-        const {pdf, remove, setRemove} = this.props;
+        const {remove, setRemove} = this.props;
         return (
             <React.Fragment>
                 <TextField

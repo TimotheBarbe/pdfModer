@@ -6,7 +6,8 @@ import {loadPdfAction} from "../redux/pdf/actions";
 import {createStyles, Theme, withStyles} from "@material-ui/core";
 import {pdfSelector} from "../redux/pdf/selectors";
 
-const styles = (theme: Theme) =>
+// Move to a better place ?
+export const styles = (theme: Theme) =>
     createStyles({
         dropzone: {
             flex: 1,

@@ -1,9 +1,9 @@
 import React, {PureComponent} from "react";
 import Dropzone from "react-dropzone";
-import {PDFDocument} from "pdf-lib";
 import {IPdfInfo} from "../../state/models";
 import {WithStyles} from "@material-ui/core";
-import {loadAndMerge, loadPdf, mergePdf} from "../../utils/pdfUtils";
+import {loadAndMerge} from "../../utils/pdfUtils";
+import {loadFile} from "../../utils/fileUtils";
 
 interface IPdfLoaderProps extends WithStyles {
     load: (data: IPdfInfo) => void;
@@ -13,15 +13,14 @@ interface IPdfLoaderProps extends WithStyles {
 export default class PdfLoader extends PureComponent<IPdfLoaderProps> {
 
     private read = (files: File[]) => {
-        const file = files[0]
-        const reader = new FileReader()
-        reader.onabort = () => console.log('file reading was aborted')
-        reader.onerror = () => console.log('file reading has failed')
-        reader.onload = () => {
+        const onload = (reader: FileReader) => {
             const binaryStr = reader.result
-            if (binaryStr != null) loadAndMerge(binaryStr, this.props.pdf).then(r => this.props.load(r))
+            if (binaryStr != null) {
+                loadAndMerge(binaryStr, this.props.pdf).then(r => this.props.load(r))
+            }
         }
-        reader.readAsArrayBuffer(file)
+        const [file] = files
+        loadFile(onload, file)
     };
 
     public render() {
@@ -33,7 +32,7 @@ export default class PdfLoader extends PureComponent<IPdfLoaderProps> {
                         <section>
                             <div {...getRootProps({className: classes.dropzone})}>
                                 <input {...getInputProps()} />
-                                <p>Drag 'n' drop some files here, or click to select files</p>
+                                <p>Drag 'n' drop your PDF here, or click to select a file</p>
                             </div>
                         </section>
                     )}

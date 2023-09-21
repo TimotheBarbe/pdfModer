@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {Toolbar, Typography, WithStyles} from "@material-ui/core";
+import {Typography, WithStyles} from "@material-ui/core";
 import UndoIcon from '@material-ui/icons/Undo';
 import IconButton from "@material-ui/core/IconButton";
 import RedoIcon from '@material-ui/icons/Redo';

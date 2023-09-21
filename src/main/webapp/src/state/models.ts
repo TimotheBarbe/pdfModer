@@ -16,22 +16,37 @@ export interface ITextOption {
     text: string;
 }
 
+export type ImageFormat = "png" | "jpg" | "empty" | "unknown";
+
+export interface IImage {
+    data: Uint8Array; //Blob;
+    format: ImageFormat;
+}
+
+export interface IImageOption {
+    x: number;
+    y: number;
+    rotate: number;
+    scale: number;
+    image: IImage;
+}
+
 export interface IRectangleOption {
-    x: number,
-    y: number,
-    width: number,
-    height: number,
-    rotate: number,
-    // borderWidth: number,
-    // borderColor: grayscale(0.5),
-    color: string,
-    opacity: number,
-    // borderOpacity: 0.75,
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    rotate: number;
+    // borderWidth: number;
+    // borderColor: grayscale(0.5);
+    color: string;
+    opacity: number;
+    // borderOpacity: 0.75;
 }
 
 export interface IMoveOption {
-    from: string,
-    to: string,
+    from: string;
+    to: string;
 }
 
 export interface IForm {
@@ -39,6 +54,7 @@ export interface IForm {
     insert: string;
     move: IMoveOption;
     textOption: ITextOption;
+    imageOption: IImageOption;
     rectangleOption: IRectangleOption;
 }
 

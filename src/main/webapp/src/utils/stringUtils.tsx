@@ -1,4 +1,5 @@
 import {rgb} from "pdf-lib";
+import {ImageFormat} from "../state/models";
 
 const intervalExp = new RegExp('^([0-9]+)-([0-9]+)$');
 
@@ -24,4 +25,11 @@ export const toRgb = (hex: string) => {
     }
 
     return result ? rgb(getValue(result[1]), getValue(result[2]), getValue(result[3])) : rgb(0, 0, 0);
+}
+
+export const getImageFormat = (type: string): ImageFormat => {
+    if (type.endsWith("png")) return "png"
+    if (type.endsWith("jpg")) return "jpg"
+    if (type.endsWith("jpeg")) return "jpg"
+    return "unknown"
 }

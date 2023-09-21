@@ -13,6 +13,13 @@ export const formTextColorSelector = (state: IStoreState) => formTextOptionSelec
 export const formTextSizeSelector = (state: IStoreState) => formTextOptionSelector(state).size;
 export const formTextSelector = (state: IStoreState) => formTextOptionSelector(state).text;
 
+export const formImageOptionSelector = (state: IStoreState) => formSelector(state).imageOption;
+export const formImageSelector = (state: IStoreState) => formImageOptionSelector(state).image;
+export const formImageXSelector = (state: IStoreState) => formImageOptionSelector(state).x;
+export const formImageYSelector = (state: IStoreState) => formImageOptionSelector(state).y;
+export const formImageRotateSelector = (state: IStoreState) => formImageOptionSelector(state).rotate;
+export const formImageScaleSelector = (state: IStoreState) => formImageOptionSelector(state).scale;
+
 export const formRectangleOptionSelector = (state: IStoreState) => formSelector(state).rectangleOption;
 export const formRectangleXSelector = (state: IStoreState) => formRectangleOptionSelector(state).x;
 export const formRectangleYSelector = (state: IStoreState) => formRectangleOptionSelector(state).y;
