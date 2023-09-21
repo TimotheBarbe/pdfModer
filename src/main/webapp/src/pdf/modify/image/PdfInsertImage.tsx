@@ -52,8 +52,7 @@ export default class PdfInsertImage extends PureComponent<IPdfInsertImageProps> 
         const {
             classes, pdf, image, x, y, setImageX, setImageY, rotate, setImageRotate, scale, setImageScale
         } = this.props;
-        // TODO
-        const test = URL.createObjectURL(
+        const display = URL.createObjectURL(
             new Blob([image.data.buffer], {type: 'image/png'})
         );
         return (
@@ -74,7 +73,7 @@ export default class PdfInsertImage extends PureComponent<IPdfInsertImageProps> 
                 {image.format !== "empty" &&
                 <React.Fragment>
                     <Grid item={true} xs={9}>
-                        <img src={test} className={classes.img} alt={"pdf img to insert"}/>
+                        <img src={display} className={classes.img} alt={"pdf img to insert"}/>
                     </Grid>
                     <Grid item={true} xs={3}>
                         <IconButton color={"inherit"} onClick={this.clearImage}><Cancel/></IconButton>
