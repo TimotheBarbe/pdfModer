@@ -6,6 +6,7 @@ Freely modify your PDF
 - rotate pages
 - add text
 - draw rectangle
+- draw images
 
 Your pdfs are not uploaded on any server (you can use it offline once the page is loaded)
 
